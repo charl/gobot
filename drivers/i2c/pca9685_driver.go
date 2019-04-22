@@ -11,6 +11,7 @@ const pca9685Address = 0x40
 
 const (
 	PCA9685_MODE1        = 0x00
+	PCA9685_MODE2        = 0x01
 	PCA9685_PRESCALE     = 0xFE
 	PCA9685_SUBADR1      = 0x02
 	PCA9685_SUBADR2      = 0x03
@@ -23,12 +24,18 @@ const (
 	PCA9685_ALLLED_ON_H  = 0xFB
 	PCA9685_ALLLED_OFF_L = 0xFC
 	PCA9685_ALLLED_OFF_H = 0xFD
+	PCA9685_RESTART      = 0x80
+        PCA9685_SLEEP        = 0x10
+        PCA9685_ALLCALL      = 0x01
+        PCA9685_INVRT        = 0x10
+        PCA9685_OUTDRV       = 0x04
 )
 
 // PCA9685Driver is a Gobot Driver for the PCA9685 16-channel 12-bit PWM/Servo controller.
 //
-// For example, here is the Adafruit board that uses this chip:
-// https://www.adafruit.com/product/815
+// Examples:
+// * Adafruit board: https://www.adafruit.com/product/815
+// * SunFounder: https://github.com/sunfounder/SunFounder_PiCar-V/blob/master/datasheet/PCA9685.pdf
 //
 type PCA9685Driver struct {
 	name       string
